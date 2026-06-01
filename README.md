@@ -43,7 +43,6 @@ Task Orbit is a full-stack to-do application with session-based login, task CRUD
 │   ├── seed.js
 │   └── server.js
 ├── Procfile
-├── vercel.json
 ├── package.json
 └── README.md
 ```
@@ -107,6 +106,14 @@ The backend serves `frontend/dist` in production, and the repo includes a `herok
 - Use `npm start` for the server command.
 - Add the repo to GitHub, then connect it to Heroku or another Node host.
 - If MongoDB is unavailable locally, the app falls back to in-memory storage so the UI still works for demo purposes.
+
+### Recommended GitHub Deploy Flow
+
+1. Push your final code to GitHub.
+2. Connect the GitHub repository to a hosting service such as Heroku or Render.
+3. Set the environment variables on the host.
+4. Let the host run `npm install` and `npm run heroku-postbuild` during deployment.
+5. Open the deployed URL and test login, tasks, and logout.
 
 ## Styling Notes 🎨
 
