@@ -1,106 +1,79 @@
-# Simple To-Do List Application
+# Task Orbit ✨
 
-A minimal full stack To-Do List Application where users can register/login and manage daily tasks efficiently.
+Task Orbit is a full-stack to-do application with session-based login, task CRUD, and a polished React dashboard. It is designed to feel clean, modern, and recruiter-ready while staying practical for real use.
 
-This project aligns with the Glowlogics program learning outcomes in partnership with TechFest IIT Bombay.
+> Fast login, smooth task control, and a bright white UI with orange and green accents.
 
-## Objective
+## Highlights
 
-Build a clean and practical task management app with authentication and task CRUD operations.
+- Secure register, login, logout, and session restore flow
+- Demo account seeded automatically for quick testing
+- Create, update, complete, and delete tasks
+- Separate pending and completed sections for clarity
+- Responsive dashboard with stat cards and premium visual styling
+- Production-ready backend that serves the built React app
 
-## Features
+## Demo Credentials
 
-- User authentication
-- Register/Login with email + password
-- Session-based authentication handling
-- Task creation
-- Add task title (required) and description (optional)
-- Task management
-- Mark tasks complete/incomplete
-- Edit task title and description
-- Delete tasks
-- Task viewing
-- Clean dashboard UI
-- Separate pending and completed task sections
-- Responsive design for desktop and mobile
-- Premium frontend design system with animated background, dashboard stats, and polished cards
-- Anime.js powered motion for section reveals, stat/progress transitions, and task list entry animations
+- Email: `admin@example.com`
+- Password: `Admin123`
 
 ## Tech Stack
 
-### Front-End
-
-- HTML5
-- CSS3
-- JavaScript (DOM manipulation + fetch API)
-- Anime.js (UI animations)
-
-### Back-End
-
-- Node.js
-- Express.js
-- RESTful API endpoints
-
-### Database
-
-- MongoDB
-- Mongoose ODM
-
-### Integration & Deployment
-
-- Front-end served by Express
-- API integration through fetch requests
-- Ready to deploy on Heroku, Vercel (with server support), or AWS
+- React + Webpack + Babel
+- Node.js + Express
+- MongoDB + Mongoose, with in-memory fallback for local development
+- express-session for authentication
+- CSS-driven UI effects and motion
 
 ## Project Structure
 
 ```text
 .
-├── public/
-│   ├── app.js
-│   ├── index.html
-│   └── styles.css
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   └── webpack.config.js
 ├── server/
 │   ├── middleware/
-│   │   └── auth.js
 │   ├── models/
-│   │   ├── Task.js
-│   │   └── User.js
 │   ├── routes/
-│   │   ├── auth.js
-│   │   └── tasks.js
 │   ├── db.js
+│   ├── seed.js
 │   └── server.js
-├── .env.example
-├── .gitignore
+├── Procfile
+├── vercel.json
 ├── package.json
 └── README.md
 ```
 
-## Setup Instructions
+## Local Setup
 
-1. Clone repository and open project.
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
+cd frontend
+npm install
 ```
 
-3. Create environment file:
+2. Create a `.env` file from `.env.example` and set:
 
-- Copy `.env.example` to `.env`
-- Update values for `MONGO_URI` and `SESSION_SECRET`
+- `MONGO_URI`
+- `SESSION_SECRET`
+- `NODE_ENV`
 
-4. Start MongoDB locally (or provide a cloud MongoDB URI).
-5. Run in development mode:
+3. Start the app in development:
 
 ```bash
 npm run dev
 ```
 
-6. Open in browser:
+4. Open the app:
 
-- `http://localhost:5000`
+- React UI: `http://localhost:3000`
+- API server: `http://localhost:5000`
 
 ## API Endpoints
 
@@ -118,24 +91,32 @@ npm run dev
 - `PUT /api/tasks/:id`
 - `DELETE /api/tasks/:id`
 
-## Deployment Notes
+## Production Build
 
-- Set environment variables on your hosting provider:
-- `PORT`
-- `MONGO_URI`
-- `SESSION_SECRET`
-- `NODE_ENV=production`
-- Use `npm start` as the production start command.
+Build the React frontend with:
 
-## Live Demo Link
+```bash
+npm run build
+```
 
-Add your deployed URL here after deployment:
+The backend serves `frontend/dist` in production, and the repo includes a `heroku-postbuild` script for deployment platforms that support it.
 
-- Live Demo: `https://your-live-link.example.com`
+## Deployment Notes 🚀
 
-## Future Improvements
+- Set `MONGO_URI`, `SESSION_SECRET`, and `NODE_ENV=production` on your host.
+- Use `npm start` for the server command.
+- Add the repo to GitHub, then connect it to Heroku or another Node host.
+- If MongoDB is unavailable locally, the app falls back to in-memory storage so the UI still works for demo purposes.
 
+## Styling Notes 🎨
+
+- White background with warm orange and fresh green accents
+- Rounded cards, soft shadows, and subtle motion for a premium feel
+- Optimized for desktop and mobile layouts
+
+## Future Ideas
+
+- Due dates and reminders
+- Search, filter, and sort controls
 - Password reset flow
-- Task due dates and reminders
-- Search/filter/sort controls
-- Pagination for large task lists
+- Task categories and labels

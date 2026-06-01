@@ -5,7 +5,11 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "backend": "nodemon --watch server --ext js,json server/server.js",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "cd frontend && npm run build",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "keywords": [
     "todo",
@@ -24,6 +28,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "concurrently": "^7.6.0"
   }
 }
